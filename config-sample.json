@@ -6,5 +6,6 @@
     },
     "backend": {
         "port": 8090
-    }
+    },
+    "log": true
 }

@@ -3,7 +3,7 @@ import { Server, IncomingMessage, ServerResponse } from "http";
 import config from '../config.json';
 import apiRoutes from "./api";
 
-const server: FastifyInstance<Server, IncomingMessage, ServerResponse> = fastify({ logger: true });
+const server: FastifyInstance<Server, IncomingMessage, ServerResponse> = fastify({ logger: config.log });
 
 const opts: RouteShorthandOptions = {
   schema: {

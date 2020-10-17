@@ -6,17 +6,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "tsc": "tsc",
-    "dev": "ts-node-dev --respawn --transpileOnly ./app.ts",
-    "prod": "tsc && node ./build/app.js"
+    "dev": "ts-node-dev --respawn --transpile-only ./app.ts",
+    "prod": "tsc && node ./build/backend/app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "fastify": "^3.6.0",
-    "ts-node-dev": "^1.0.0",
-    "typescript": "^4.0.3"
+    "fastify": "^3.6.0"
   },
   "devDependencies": {
-    "@types/node": "^14.11.10"
+    "@types/node": "^14.11.10",
+    "ts-node-dev": "^1.0.0",
+    "typescript": "^4.0.3"
   }
 }

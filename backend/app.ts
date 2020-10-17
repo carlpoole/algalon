@@ -2,7 +2,7 @@ import fastify, { FastifyInstance, RouteShorthandOptions } from "fastify";
 import { Server, IncomingMessage, ServerResponse } from "http";
 import config from '../config.json';
 
-const server: FastifyInstance<Server, IncomingMessage, ServerResponse> = fastify({});
+const server: FastifyInstance<Server, IncomingMessage, ServerResponse> = fastify({ logger: true });
 
 const opts: RouteShorthandOptions = {
   schema: {
@@ -20,7 +20,6 @@ const opts: RouteShorthandOptions = {
 };
 
 server.get("/ping", opts, (_request, reply) => {
-  //console.log(reply.raw);
   reply.code(200).send({ pong: "it worked!" });
 });
 

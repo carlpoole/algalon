@@ -1,24 +1,8 @@
-import fastify, { FastifyInstance, RouteShorthandOptions } from "fastify";
-import { Server, IncomingMessage, ServerResponse } from "http";
+import fastify from "fastify";
 import config from '../config.json';
 import apiRoutes from "./api";
 
-const server: FastifyInstance<Server, IncomingMessage, ServerResponse> = fastify({ logger: config.log });
-
-const opts: RouteShorthandOptions = {
-  schema: {
-    response: {
-      200: {
-        type: "object",
-        properties: {
-          pong: {
-            type: "string",
-          },
-        },
-      },
-    },
-  },
-};
+const server = fastify({ logger: config.log });
 
 // Register API routes
 server.register(apiRoutes, { prefix: '/api' });

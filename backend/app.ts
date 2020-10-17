@@ -1,6 +1,7 @@
 import fastify, { FastifyInstance, RouteShorthandOptions } from "fastify";
 import { Server, IncomingMessage, ServerResponse } from "http";
 import config from '../config.json';
+import apiRoutes from "./api";
 
 const server: FastifyInstance<Server, IncomingMessage, ServerResponse> = fastify({ logger: true });
 
@@ -19,15 +20,15 @@ const opts: RouteShorthandOptions = {
   },
 };
 
-server.get("/ping", opts, (_request, reply) => {
-  reply.code(200).send({ pong: "it worked!" });
-});
+// Register API routes
+server.register(apiRoutes, { prefix: '/api' });
 
+// Start the server
 server.listen(config.backend.port, (err) => {
   if (err) {
     server.log.error(err)
     process.exit(1)
   }
 
-  server.log.info(`server listening on ${config.backend.port}`)
-})
+  server.log.info(`Algalon Back End is Online`)
+});

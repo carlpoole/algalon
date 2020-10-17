@@ -4,8 +4,17 @@ Algalon is a log analysis tool built for World of Warcraft Classic
 
 ## Config
 
-Copy the `config-sample.json` to `config.json` in the root directory
+```cp ./config-sample.json ./config.json```
 
-## Warcraft Logs API
+Copy the sample config in the root directory and modify with your information. The app needs an API key for [Warcraft Logs](https://www.warcraftlogs.com) to function.
 
-The app needs an API key for [Warcraft Logs](https://www.warcraftlogs.com) (wcl) to function. Place the key in the config.
+### Running Back End
+
+To start the server:
+
+```
+cd backend
+npm install
+```
+
+Then run either `npm run dev` or `npm run prod`

@@ -1,0 +1,14 @@
+{
+  "name": "algalon-backend",
+  "version": "1.0.0",
+  "description": "Log analysis tool for WoW Classic",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^4.0.3"
+  }
+}

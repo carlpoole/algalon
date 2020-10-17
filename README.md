@@ -19,10 +19,8 @@ cd backend
 npm install
 ```
 
-Then run either 
+Then run the script for either `dev` or `prod`
 
-```npm run dev``` 
-
-or 
-
-```npm run prod```
+```
+npm run dev
+``` 

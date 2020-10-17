@@ -4,11 +4,19 @@
   "description": "Log analysis tool for WoW Classic",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "tsc",
+    "dev": "ts-node-dev --respawn --transpileOnly ./app.ts",
+    "prod": "tsc && node ./build/app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "fastify": "^3.6.0",
+    "ts-node-dev": "^1.0.0",
     "typescript": "^4.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^14.11.10"
   }
 }

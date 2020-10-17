@@ -1,0 +1,10 @@
+{
+    "redis": null,
+    "wclKey": "",
+    "frontend": {
+        "port": 8080
+    },
+    "backend": {
+        "port": 8090
+    }
+}

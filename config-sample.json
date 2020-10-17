@@ -7,5 +7,10 @@
     "backend": {
         "port": 8090
     },
+    "guild": {
+        "name": "ONSLAUGHT",
+        "realm": "skeram",
+        "region": "us"
+    },
     "log": true
 }

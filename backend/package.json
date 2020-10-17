@@ -18,9 +18,11 @@
   "license": "ISC",
   "dependencies": {
     "fastify": "^3.6.0",
+    "ioredis": "^4.17.3",
     "node-fetch": "^2.6.1"
   },
   "devDependencies": {
+    "@types/ioredis": "^4.17.5",
     "@types/node": "^14.11.10",
     "@types/node-fetch": "^2.5.7",
     "ts-node-dev": "^1.0.0",

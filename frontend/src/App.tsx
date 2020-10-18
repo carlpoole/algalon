@@ -1,16 +1,18 @@
-import React from 'react';
-import { MDBCollapse, MDBContainer, MDBIcon, MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBNavItem, MDBNavLink } from 'mdbreact';
-import { BrowserRouter as Router } from 'react-router-dom';
+import React from 'react'
+import { MDBCollapse, MDBIcon, MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBNavItem, MDBNavLink } from 'mdbreact';
+import { Route, RouteComponentProps, Switch, withRouter } from 'react-router-dom';
+import Home from './pages/Home';
+import About from './pages/About';
 
 interface AppState {
   collapse: boolean;
 }
 
-class App extends React.Component<{}, AppState> {
-  constructor(props : Readonly<{}>) {
+class App extends React.Component<RouteComponentProps, AppState> {
+  constructor(props : RouteComponentProps) {
       super(props);
       this.state = {
-          collapse: false,
+          collapse: false
       };
 
       this.onClick = this.onClick.bind(this);
@@ -24,10 +26,9 @@ class App extends React.Component<{}, AppState> {
 
   render() {
     const navBar = { backgroundColor: '#181b24' }
-    const container = { height: 1300 }
+    
     return(
       <div>
-        <Router>
           <header>
             <MDBNavbar style={ navBar } dark expand="md" scrolling fixed="top">
               <MDBNavbarBrand href="/">
@@ -36,43 +37,32 @@ class App extends React.Component<{}, AppState> {
               <MDBNavbarToggler onClick={ this.onClick } />
               <MDBCollapse isOpen = { this.state.collapse } navbar>
                 <MDBNavbarNav left>
-                  <MDBNavItem active>
-                      <MDBNavLink to="#">Home</MDBNavLink>
+                  <MDBNavItem active={this.props.location.pathname === '/'}>
+                      <MDBNavLink to="/">Home</MDBNavLink>
                   </MDBNavItem>
-                  <MDBNavItem>
-                      <MDBNavLink to="#">Features</MDBNavLink>
-                  </MDBNavItem>
-                  <MDBNavItem>
-                      <MDBNavLink to="#">Pricing</MDBNavLink>
-                  </MDBNavItem>
-                  <MDBNavItem>
-                    <MDBNavLink to="#">Options</MDBNavLink>
+                  <MDBNavItem active={this.props.location.pathname === '/about'}>
+                      <MDBNavLink to="/about">About</MDBNavLink>
                   </MDBNavItem>
                 </MDBNavbarNav>
                 <MDBNavbarNav right>
                   <MDBNavItem>
-                    <MDBNavLink to="#"><MDBIcon fab icon="facebook-f" /></MDBNavLink>
-                  </MDBNavItem>
-                  <MDBNavItem>
-                    <MDBNavLink to="#"><MDBIcon fab icon="twitter" /></MDBNavLink>
-                  </MDBNavItem>
-                  <MDBNavItem>
-                    <MDBNavLink to="#"><MDBIcon fab icon="instagram" /></MDBNavLink>
+                    <MDBNavLink to="#"><MDBIcon fab icon="github" /></MDBNavLink>
                   </MDBNavItem>
                 </MDBNavbarNav>
               </MDBCollapse>
             </MDBNavbar>
           </header>
-        </Router>
-        <MDBContainer style={ container } className="text-center mt-5 pt-5">
-          <h2>Algalon</h2>
-          <h5>This app is currently a work in progress</h5>
-          <br/>
-          <p>Check back later for more</p>
-        </MDBContainer>
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/about">
+              <About />
+            </Route>
+          </Switch>
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);

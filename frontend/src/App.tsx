@@ -26,13 +26,13 @@ class App extends React.Component<RouteComponentProps, AppState> {
 
   render() {
     const navBar = { backgroundColor: '#181b24' }
-    
+
     return(
       <div>
           <header>
             <MDBNavbar style={ navBar } dark expand="md" scrolling fixed="top">
               <MDBNavbarBrand href="/">
-                  <strong>Navbar</strong>
+                  <strong>Algalon</strong>
               </MDBNavbarBrand>
               <MDBNavbarToggler onClick={ this.onClick } />
               <MDBCollapse isOpen = { this.state.collapse } navbar>
@@ -46,7 +46,7 @@ class App extends React.Component<RouteComponentProps, AppState> {
                 </MDBNavbarNav>
                 <MDBNavbarNav right>
                   <MDBNavItem>
-                    <MDBNavLink to="#"><MDBIcon fab icon="github" /></MDBNavLink>
+                    <a href="https://www.github.com/carlpoole/algalon" className="nav-link Ripple-parent"><MDBIcon fab icon="github"/></a>
                   </MDBNavItem>
                 </MDBNavbarNav>
               </MDBCollapse>
